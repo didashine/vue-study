@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<div id="app">Praxis.sublime-theme
+		<ul>
+			<li v-for="aaaa in st">
+				{{aaaa.name}}--{{aaaa.age}}
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:"#app",
+			data:{
+				student:[3,2,1,4,5,6,8,7,9],
+				devst:[
+						{name:'qaz',age:'24'},
+						{name:'sss',age:'23'},
+						{name:'qaaaz',age:'33'},
+						{name:'qassaz',age:'44'}
+						]
+
+			},
+			computed:{
+				devstudent:function(){
+					return this.student.sort()
+				},
+				st:function(){
+					return ssorts(this.devst,'age')
+				}
+			}
+		})
+		function ssorts(arr,key){
+			return arr.sort(function(a,b){
+				let x=a[key],y=b[key];
+				return x-y;
+			});
+		}
+	</script>
+</body>
+</html>

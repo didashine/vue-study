@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p>{{ a }}</p>
+
+	<p>
+		<button @click='jia'>+1</button>  <!-- @click=v-on:click -->
+		<button @click='jian'>-1</button>
+	</p>
+	<p>
+		<input type="text" @keyup.enter='kk' v-model='b'>
+		<input type="text" @keyup.113='kk' v-model='b'>
+	</p>
+	</div>
+	
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				a:10,
+				b:0
+			},
+			methods:{
+				jia:function(){
+					this.a++
+				},
+				jian:function(){
+					this.a--
+				},
+				kk:function(){
+					this.a=this.a+parseInt(this.b)
+				}
+			}
+		})
+	</script>
+</body>
+</html>

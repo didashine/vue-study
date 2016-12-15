@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+	<style type="text/css">
+		.colorA{
+			color: red;
+		}
+		.colorB{
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div :class='classname'>1.绑定class</div>
+		<div :class='{colorA:colorOr}'>2.绑定class中断</div>
+		<div :class='[colorA,colorB]'>3.绑定class中使用数组</div>
+		<div :class='colorOr?colorA:colorB'>4.绑定class中使用三元表达式</div>
+		<div :class='[{colorA:colorOr},colorB]'>5.绑定class中使用判断组合</div>
+		<div :style='{color:blue,fontSize:font}'>6.style绑定</div>
+		<div :style='fontzzz'>7.style中绑定json语句</div>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				classname:'colorA',
+				colorOr:true,
+				/*colorA:'colorA',
+				colorB:'colorB',*/
+				blue:'blue',
+				font:'15px',
+				fontzzz:{
+					color:'green',
+					fontSize:'22px'
+				}
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div v-dd.color='color' id='name'>{{a}}</div>
+		<p>
+			<button @click='jia' id='name'>+</button>
+		</p>
+	</div>
+	<button onclick="xiezai()">卸载</button>
+	<script type="text/javascript">
+		function xiezai(){
+			app.$destroy();
+		}
+		Vue.directive('dd',{              //自定义指令5个生命周期
+			bind:function(el,binding,vnode){ //被绑定
+				/*var s = JSON.stringify
+				el.innerHTML=
+					'name'            +s(binding.name) + '<br>' +
+					'value'           +s(binding.value) + '<br>' +
+					'expression'      +s(binding.expression) + '<br>' +
+					'argument'        +s(binding.arg) + '<br>' +
+					'modifiers'       +s(binding.modifiers) + '<br>' +
+					'vnode keys'      +Object.keys(vnode).join(', ');*/
+					el.style='color:'+binding.value
+				/*console.log('1-bind')  */
+			},
+			inserted:function(){//绑定到节点
+				console.log('2-inserted')
+			},
+			update:function(){//组建更新
+				console.log('3-updata')
+			},
+			componentUpdated:function(){//组建更新完成
+				console.log('4-componentUpdated')
+			},
+			unbind:function(){//解绑
+				console.log('5-unbind')
+			}
+
+		})
+		var app = new Vue({
+			el:'#app',
+			data:{
+				'a':'10',
+				'color':'red'
+			},
+			methods:{
+				jia:function(){
+					this.a++
+				}
+			}
+		})
+	</script>
+</body>
+</html>
