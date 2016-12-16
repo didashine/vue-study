@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -6,7 +6,7 @@
 	<script type="text/javascript" src="../assets/js/vue.js"></script>
 </head>
 <body>
-	<div id="app">Praxis.sublime-theme
+	<div id="app">
 		<ul>
 			<li v-for="aaaa in st">
 				{{aaaa.name}}--{{aaaa.age}}
@@ -40,6 +40,46 @@
 				let x=a[key],y=b[key];
 				return x-y;
 			});
+		}
+	</script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for='aaa in st'>{{aaa.name}}--{{aaa.age}}</li>
+				
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				student:[
+					{name:'asd',age:11},
+					{name:'qaz',age:23},
+					{name:'wsx',age:43},
+					{name:'rfr',age:26}
+				]
+			},
+			computed:{
+				st:function(){
+					return ssorts(this.student,'age')
+				}
+			}
+		})
+		function ssorts(arr,key){
+			return arr.sort(function(a,b){
+				let x = a[key] ,y = b[key];
+				return x-y;
+			})
 		}
 	</script>
 </body>

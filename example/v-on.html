@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -10,7 +10,7 @@
 		<p>{{ a }}</p>
 
 	<p>
-		<button @click='jia'>+1</button>  <!-- @click=v-on:click -->
+		<button @click='jia'>+1</button>  @click=v-on:click
 		<button @click='jian'>-1</button>
 	</p>
 	<p>
@@ -35,6 +35,36 @@
 				},
 				kk:function(){
 					this.a=this.a+parseInt(this.b)
+				}
+			}
+		})
+	</script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p>{{ message }}</p>
+		<p>
+			<input type="text" @keyup.enter='jia' v-model='b'>
+		</p>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				message:10,
+				b:0
+			},
+			methods:{
+				jia:function(){
+					this.message += parseInt(this.b);
 				}
 			}
 		})

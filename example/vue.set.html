@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for='aaa in goods'>
+				{{aaa.name}}--{{aaa.num}}
+			</li>
+			<li>总共{{count}}件商品</li>
+		</ul>
+		<button @click='qingkong()'>清空</button>
+	</div>
+	<button onclick='add()'>++</button>
+	<script type="text/javascript">
+		add = () => {
+			asdf.count++;
+			asdf.goods.push({
+				name:'house',num:'1'
+			})
+		}
+		var asdf={
+			count:3,
+			goods:[
+				{name:'car',num:'1'},
+				{name:'pen',num:'2'}
+			]
+		}
+		var app = new Vue({
+			el:'#app',
+			data:asdf,
+			methods:{
+				qingkong:function(){
+					this.count = 0,
+					this.goods = [];
+				}
+			}
+		})
+	</script>
+</body>
+</html>

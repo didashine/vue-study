@@ -22,6 +22,7 @@
 		<div :class='[{colorA:colorOr},colorB]'>5.绑定class中使用判断组合</div>
 		<div :style='{color:blue,fontSize:font}'>6.style绑定</div>
 		<div :style='fontzzz'>7.style中绑定json语句</div>
+		<a :href="v" v-text="v"></a>
 	</div>
 	<script type="text/javascript">
 		var app = new Vue({
@@ -29,10 +30,11 @@
 			data:{
 				classname:'colorA',
 				colorOr:true,
-				/*colorA:'colorA',
-				colorB:'colorB',*/
+				colorA:'colorA',
+				colorB:'colorB',
 				blue:'blue',
 				font:'15px',
+				v:'menu1',
 				fontzzz:{
 					color:'green',
 					fontSize:'22px'
